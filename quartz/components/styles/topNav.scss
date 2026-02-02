@@ -1,0 +1,35 @@
+.top-nav {
+  width: 100%;
+}
+
+.top-nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--light) 92%, var(--highlight));
+}
+
+.top-nav-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--darkgray);
+  text-decoration: none;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+
+  // override Quartz internal-link highlight style
+  &.internal {
+    background: transparent;
+    line-height: normal;
+  }
+
+  &:hover {
+    color: var(--dark);
+    background: var(--highlight);
+  }
+}

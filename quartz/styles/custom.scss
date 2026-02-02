@@ -1,3 +1,80 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
-// put your custom CSS here!
+:root {
+  --card-radius: 12px;
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+// smoother UI without adding a heavy global `* { transition: ... }`
+a,
+button,
+.home-card {
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease,
+    transform 180ms ease, box-shadow 180ms ease;
+}
+
+// reading experience
+.center > article {
+  line-height: 1.75;
+  font-size: 1.06rem;
+}
+
+// homepage helpers
+.intro {
+  font-size: 1.05rem;
+  color: var(--gray);
+  margin: 0.75rem 0 1.25rem;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+
+  @media all and ($mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-card {
+  display: block;
+  padding: 1rem 1rem;
+  border: 1px solid var(--lightgray);
+  border-radius: var(--card-radius);
+  background: color-mix(in srgb, var(--light) 92%, var(--highlight));
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  text-decoration: none !important;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--secondary) 70%, var(--lightgray));
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+  }
+
+  h3 {
+    margin: 0 0 0.35rem 0;
+    color: var(--dark);
+  }
+
+  p {
+    margin: 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+}
+
+// sidebar polish
+.sidebar {
+  .page-title a {
+    letter-spacing: -0.01em;
+  }
+}
+
+.explorer {
+  .title-button h2 {
+    font-weight: 650;
+  }
+}
